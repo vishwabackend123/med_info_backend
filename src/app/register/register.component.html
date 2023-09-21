@@ -1,0 +1,73 @@
+<body class="hold-transition register-page">
+    <div class="register-box">
+        <div class="card card-outline card-primary">
+            <div class="card-header text-center">
+                <a href="javascript:void(0);" class="h1"><b>Medinfo</b></a>
+            </div>
+            <div class="card-body">
+                <p class="login-box-msg">Register a new membership</p>
+
+                <form #userRegister="ngForm" (ngSubmit)="userRegister.form.valid && onClickSubmit()">
+                    <div class="input-group mb-3">
+                        <input type="text" placeholder="Full name" name="full_name" class="form-control"
+                            [(ngModel)]="model.full_name" #full_name="ngModel"
+                            [ngClass]="{ 'is-invalid': userRegister.submitted && full_name.invalid }" required>
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-user"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="email" class="form-control" placeholder="Email" name="email" class="form-control"
+                        [(ngModel)]="model.email" #email="ngModel"
+                        [ngClass]="{ 'is-invalid': userRegister.submitted && email.invalid }" required>
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-envelope"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="password" class="form-control" placeholder="Password" name="password" class="form-control"
+                        [(ngModel)]="model.password" #password="ngModel"
+                        [ngClass]="{ 'is-invalid': userRegister.submitted && password.invalid }" required>
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-lock"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="password" class="form-control" placeholder="Retype password" name="conf_password" class="form-control"
+                        [(ngModel)]="model.conf_password" #conf_password="ngModel"
+                        [ngClass]="{ 'is-invalid': userRegister.submitted && conf_password.invalid }" ngValidateEqual="password" required>
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-lock"></span>
+                            </div>
+                        </div>
+                                                
+                    </div>
+                    <div  *ngIf="(conf_password.dirty || conf_password.touched) && conf_password.invalid">
+                        <p class="warning-text" [ngStyle]="{'color': 'red'}" *ngIf="conf_password.hasError('notEqual') && password.valid">
+                          Passwords Don't Match
+                        </p>
+                    </div>
+                    <div class="row">
+                        <div class="col-8">
+                        </div>
+                        <!-- /.col -->
+                        <div class="col-4">
+                            <button type="submit" class="btn btn-primary btn-block">Register</button>
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                </form>
+                <a routerLink="/" class="text-center">I already have a membership</a>
+            </div>
+            <!-- /.form-box -->
+        </div><!-- /.card -->
+    </div>
+    <!-- /.register-box -->
+</body>
