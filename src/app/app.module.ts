@@ -8,6 +8,11 @@ import { RegisterComponent } from './register/register.component';
 import { ValidateEqualModule } from 'ng-validate-equal';
 import { HttpClientModule } from '@angular/common/http';
 import { DashboardComponent } from './main/dashboard/dashboard.component';
+import { LayoutComponent } from './layout/layout.component';
+import { HeaderComponent } from './layout/header/header.component';
+import { SidebarComponent } from './layout/sidebar/sidebar.component';
+import { FooterComponent } from './layout/footer/footer.component';
+import { UserlistComponent } from './main/userlist/userlist.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +20,11 @@ import { DashboardComponent } from './main/dashboard/dashboard.component';
     LoginComponent,
     RegisterComponent,
     DashboardComponent,
+    LayoutComponent,
+    HeaderComponent,
+    SidebarComponent,
+    FooterComponent,
+    UserlistComponent,
   ],
   imports: [
     BrowserModule,

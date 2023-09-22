@@ -17,4 +17,10 @@ export class UserService {
     queryParams = queryParams.append("password",data.password);
     return this.http.get('http://localhost:3000/user',{params:queryParams});
   }
+  userList(){
+    return this.http.get('http://localhost:3000/user');
+  }
+  deleteUser(id:any){
+   return this.http.delete('http://localhost:3000/user/'+id);
+  }
 }
